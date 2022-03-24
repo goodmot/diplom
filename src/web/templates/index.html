@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Главная</title>
+	<link rel="stylesheet" href="static/hf.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+		<div id="content">
+			<header>
+				<div id="logo">
+					<h2>Определение болезни по тексту</h2>
+				</div>
+			</header>
+		</div>
+</div>
+
+	<div id="main">
+		<div class="brd">
+			<form  method='POST' action='/answer' name="form_">
+				<span>Введите текст с симптомами болезни(желательно не менее 70 слов) </span>
+				<p><textarea name='phrase' id="sickness_input" type='text' width='60'></textarea></p>
+				<p><input value='Определить' type='SUBMIT'></p>
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+
+	$(window).bind("pageshow", function() {
+		$('textarea').val('');
+	});
+	
+	function submitOnEnter(event){
+		if(event.which === 13 && !event.shiftKey){
+			event.target.form.dispatchEvent(new Event("submit", {cancelable: true}));
+			event.preventDefault(); 
+		}
+	}
+
+	document.getElementById("sickness_input").addEventListener("keypress", submitOnEnter);
+</script>
+
+</html>

@@ -97,7 +97,7 @@ input[type=submit] {
 }
 
 
-input[type=text] {
+#sickness_input {
 
    padding: 12px 20px;
    margin: 8px 0;
@@ -107,8 +107,8 @@ input[type=text] {
    -webkit-border-radius: 3px;
    background: #ffffff;
    outline: none;
-   height: 40px;
-   width: 800px;
+   height: 50vh;
+   width: 80vw;
    max-width:100%;
    color: #222222;
    font-family: 'PT Serif', serif;
