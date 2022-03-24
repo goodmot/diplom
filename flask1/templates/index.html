@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Главная</title>
+	<link rel="stylesheet" href="static/hf.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+		<div id="content">
+			<header>
+				<div id="logo">
+					<h2>Определение болезни по тексту</h2>
+				</div>
+			</header>
+		</div>
+</div>
+
+	<div id="main">
+		<div class="brd">
+			<form method='POST' action='/answer'>
+				<span>Введите текст с симптомами болезни(желательно не менее 70 слов) </span>
+				<p><input name='phrase' type='text' width='60'></p>
+				<p><input value='Определить' type='SUBMIT'></p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

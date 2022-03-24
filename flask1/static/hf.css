@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic|Playfair+Display+SC:400,700&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Tenor+Sans|PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic);
+
+h2 {
+  font-family: 'Tenor Sans', sans-serif;
+  /* font-family: 'Playfair Display SC', serif; */
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 40px;
+  color: #222222;
+  text-align: center;
+}
+
+h3 {
+   font-family: 'Didact Gothic', sans-serif;
+   color: #222222;
+   font-size: 1.1em;
+}
+
+body {
+  /* font-family: "Helvetica Neue", serif; */
+  /* font-size:        large; */
+   /*background-image: url('isometropolis.jpg') left top repeat;*/
+  background: url(img/fon.png) left top repeat;
+  width: 100%; /* ширина */
+  height: 100%; /* высота */
+  margin: 0;
+  padding:0;
+  text-align: center;
+}
+
+header{
+	background-color:white;
+	width:100%;
+	padding:0.5%;
+	border-bottom:6px solid #59595a;
+	height: 80px;
+	text-align: center;
+/* 	position:fixed;
+	top:0;
+	left:0; */
+}
+
+.brd {
+    border: 2px black; /* Параметры границы */
+    background: white; /* Цвет фона */
+    padding-top: 15px; /* Поля вокруг текста */
+	padding-bottom: 5px;
+	border-width:800px;
+	text-align: center;
+}
+
+
+span{
+	font-family: 'PT Serif', serif;
+	font-size:1.7em;
+
+}
+
+#main {
+	width:60%;
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	margin-top:83px;
+
+}
+
+#logo{
+	float:center;
+}
+
+#wrapper{
+	/* display:flex; */
+	/* flex-direction:column; */
+	height:100%;
+	margin-bottom: 40px;
+}
+#content{
+	flex: 1 0 auto;
+
+}
+
+input[type=submit] {
+    color: #232323;
+    /*background: url(img/background64.png) left top repeat;*/
+    background: #ffffff;
+    border: 1px solid #232323;
+    position: relative;
+    font-size: 20px;
+    letter-spacing: .3em;
+    font-family: 'PT Serif', serif;
+    padding: 17px 34px 17px 39px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+
+input[type=text] {
+
+   padding: 12px 20px;
+   margin: 8px 0;
+   box-sizing: border-box;
+   border: 2px solid #cccccc;
+   border-radius: 3px;
+   -webkit-border-radius: 3px;
+   background: #ffffff;
+   outline: none;
+   height: 40px;
+   width: 800px;
+   max-width:100%;
+   color: #222222;
+   font-family: 'PT Serif', serif;
+   font-size:    130%;
+}
+
