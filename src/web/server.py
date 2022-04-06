@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask import request
-from ai import ai
+from ..ai import ai
 
 predictior = ai.AI()
 
