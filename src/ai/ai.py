@@ -2,6 +2,7 @@
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 import re
+import pymorphy2
 
 import sys
 import numpy as np
@@ -14,12 +15,17 @@ class AI():
         self.model = read.load_tensor_model()
         self.dictionary_ = read.get_dict()
         self.nClasses = len(self.className)  # Считаем количество классов
+        
 
     def predict(self, text):
         self.mytext = text
-       
+        self.morph = pymorphy2.MorphAnalyzer()
         # Преобразовываем текст в последовательность индексов согласно частотному словарю
         self.mytext = list(filter(None, re.split('\W', self.mytext))) # разбиение текста на список слов и цифр
+        
+        for i in range(len(self.mytext)):
+            self.mytext[i] = self.morph.parse(self.mytext[i])[0].normal_form
+
         # Преобразовываем полученные выборки из последовательности индексов в матрицы нулей и единиц по принципу Bag of Words
         self.testWordIndexes = self.token(self.mytext)
         self.tokenizer = Tokenizer(num_words=len(self.testWordIndexes), filters='!"#$%&()*+,-–—./…:;<=>?@[\\]^_`{|}~«»\t\n\xa0\ufeff', lower=True, split=' ', oov_token='unknown', char_level=False)
@@ -30,7 +36,10 @@ class AI():
         return self.__match()
 
     def token(self, text):
+        
         self.testWordIndexes = []
+        maxWordsCount = 100
+
         for i in range(len(text)):
             flag = 1
             for j in range(len(self.dictionary_)):
@@ -40,11 +49,11 @@ class AI():
             if flag:
                 self.testWordIndexes.append(1)
 
-        if len(self.testWordIndexes) < 70:
-            for i in range(70 - len(self.testWordIndexes)):
+        if len(self.testWordIndexes) < maxWordsCount:
+            for i in range(maxWordsCount - len(self.testWordIndexes)):
                 self.testWordIndexes.append(1)
-        elif len(self.testWordIndexes) > 70:
-            for i in range(len(self.testWordIndexes) - 70):
+        elif len(self.testWordIndexes) > maxWordsCount:
+            for i in range(len(self.testWordIndexes) - maxWordsCount):
                 self.testWordIndexes.pop()
 
         return self.testWordIndexes

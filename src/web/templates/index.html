@@ -9,23 +9,27 @@
 
 <body>
     <div id="wrapper">
-		<div id="content">
-			<header>
-				<div id="logo">
-					<h2>Определение болезни по тексту</h2>
-				</div>
-			</header>
-		</div>
-</div>
+		<a href="/home">
+			<div id="content">
+				<header>
+					<div id="logo">
+						<h2>Определение болезни по тексту</h2>
+					</div>
+				</header>
+			</div>
+		</a>
+	</div>
 
 	<div id="main">
-		<div class="brd">
-			<form  method='POST' action='/answer' name="form_">
-				<span>Введите текст с симптомами болезни(желательно не менее 70 слов) </span>
-				<p><textarea name='phrase' id="sickness_input" type='text' width='60'></textarea></p>
-				<p><input value='Определить' type='SUBMIT'></p>
-			</form>
-		</div>
+		<form  method='POST' action='/answer' name="form_" onsubmit="return submitForm()">
+			
+			<div class="brd">
+				<span>Введите текст с симптомами болезни</span>
+				<p><textarea name='phrase' id="sickness_input" type='text' width='60'></textarea></p>	
+			</div>
+
+			<p><input value='Определить болезнь' type='submit'></p>
+		</form>	
 	</div>
 </body>
 <script>
@@ -34,6 +38,16 @@
 		$('textarea').val('');
 	});
 	
+	function submitForm(){
+		let textArray1 = document.forms["form_"]["phrase"].value.split(" ");
+		let textArray2 = document.forms["form_"]["phrase"].value.split("\n");
+
+		if (textArray1.length + textArray2.length - 1 < 10)  {
+			alert("Недостаточное количество слов! Введите не менее 10 слов.");
+			return false;
+		}
+	}
+
 	function submitOnEnter(event){
 		if(event.which === 13 && !event.shiftKey){
 			event.target.form.dispatchEvent(new Event("submit", {cancelable: true}));

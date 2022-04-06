@@ -7,21 +7,24 @@
 </head>
 <body>
     <div id="wrapper">
-		<div id="content">
-			<header>
-				<div id="logo">
-					<h2>Результаты анализа</h2>
-				</div>
-			</header>
-		</div>
+		<a href="/home">
+			<div id="content">
+				<header>
+					<div id="logo">
+						<h2>Результаты анализа</h2>
+					</div>
+				</header>
+			</div>
+		</a>
     </div>
+	
 	<div id="main">
 		<div class="brd">
-		<span>Вы ввели: <h3> {{data.phrase}}
-		</h3></span>
+			<span>Вы ввели: <h3> {{data.phrase}}</h3></span>
+			<span>Определенная болезнь:  <h3><b>{{data.predicted}}</h3></span>
+		</div>
 
-		<span>Определенная болезнь:  <h3><b>{{data.predicted}}</h3></span>
-		<div class="brd">
-	</div>
+		<p><a href="/home"><button>На главную</button></a></p>
+	</div>	
 </body>
 </html>
