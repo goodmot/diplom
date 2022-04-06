@@ -1,1 +1,1 @@
-web: python3 src/main.py
+worker: sh -c 'cd src && python3 main.py'
